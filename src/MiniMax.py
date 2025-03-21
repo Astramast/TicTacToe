@@ -23,14 +23,12 @@ class MiniMax:
 			value = float('-inf')
 			for move in self.worldLogic.getLegalMoves(worldState):
 				newState = self.worldLogic.getNewState(worldState, move)
-				assert newState.getPlayer() != worldState.getPlayer()
 				value = max(value, self.__getValue(newState, depth - 1, newState.getPlayer()))
 			return value
 		else:
 			value = float('inf')
 			for move in self.worldLogic.getLegalMoves(worldState):
 				newState = self.worldLogic.getNewState(worldState, move)
-				assert newState.getPlayer() != worldState.getPlayer()
 				value = min(value, self.__getValue(newState, depth - 1, newState.getPlayer()))
 			return value
 
